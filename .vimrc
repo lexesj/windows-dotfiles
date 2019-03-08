@@ -49,5 +49,3 @@ au BufNewFile,BufRead *.pde set filetype=java
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
-
-" This is a test for vim-fugitive

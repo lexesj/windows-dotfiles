@@ -13,6 +13,7 @@ endif
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-vinegar'
+    Plug 'tpope/vim-fugitive'
 call plug#end()
 
 set number

@@ -6,6 +6,8 @@ if !has("nvim")
 	set guioptions-=T " Remove toolbar
 	set guioptions-=m " Remove menu
 else
-	GuiTabline 0 "Remove tab line
-	GuiPopupmenu 0 "Remove pop up menu
+	" Remove tab line
+	GuiTabline 0 
+	" Remove tab line
+	GuiPopupmenu 0 
 endif

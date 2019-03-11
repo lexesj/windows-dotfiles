@@ -1,19 +1,20 @@
 " Windows
 if has('win32')
-	call plug#begin('~/vimfiles/plugged')
+  call plug#begin('~/vimfiles/plugged')
 endif
 
 " Unix
 if has('unix')
-	call plug#begin('~/.vim/plugged')
+  call plug#begin('~/.vim/plugged')
 endif
-	Plug 'morhetz/gruvbox'
-	Plug 'ARM9/arm-syntax-vim'
-	Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-commentary'
-	Plug 'tpope/vim-repeat'
-	Plug 'tpope/vim-vinegar'
-	Plug 'tpope/vim-fugitive'
+  Plug 'morhetz/gruvbox'
+  Plug 'ARM9/arm-syntax-vim'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-vinegar'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-sleuth'
 call plug#end()
 
 set number
@@ -47,5 +48,5 @@ au BufNewFile,BufRead *.pde set filetype=java
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
-	nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif

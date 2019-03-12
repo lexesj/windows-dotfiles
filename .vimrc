@@ -15,6 +15,7 @@ endif
   Plug 'tpope/vim-vinegar'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-sleuth'
+  Plug 'vim-airline/vim-airline'
 call plug#end()
 
 set number

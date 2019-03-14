@@ -26,6 +26,8 @@ set clipboard=unnamed
 set hlsearch
 set backspace=indent,eol,start
 set encoding=utf-8
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " Finding files
 set path+=**
@@ -50,3 +52,7 @@ autocmd FileType arm setlocal commentstring=;\ %s
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
+
+" Python
+let g:python3_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32\python.exe'
+let g:python_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32\python.exe'

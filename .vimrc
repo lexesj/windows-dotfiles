@@ -17,6 +17,7 @@ endif
   Plug 'tpope/vim-sleuth'
   Plug 'vim-airline/vim-airline'
   Plug 'mhinz/vim-signify'
+  Plug 'sophacles/vim-processing'
 call plug#end()
 
 set number
@@ -44,9 +45,6 @@ autocmd FileType arm setlocal commentstring=;\ %s
 
 " Vwrapper
 " set nonumber
-
-" processing
-au BufNewFile,BufRead *.pde set filetype=java
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''

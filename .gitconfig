@@ -1,0 +1,19 @@
+[user]
+  name = Lexes Mantiquilla
+  email = mantiqul@tcd.ie
+[credentials]
+  helper = wincred
+[credential]
+  helper = manager
+[core]
+  packedGitLimit = 256m
+  packedGitWindowSize = 256m
+  longpaths = true
+[http]
+  postBuffer = 524288000
+[pack]
+  deltaCacheSize = 256m
+  packSizeLimit = 256m
+  windowMemory = 1024m
+[merge]
+  tool = vimdiff

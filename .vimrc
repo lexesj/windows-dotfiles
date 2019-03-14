@@ -16,6 +16,7 @@ endif
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-sleuth'
   Plug 'vim-airline/vim-airline'
+  Plug 'mhinz/vim-signify'
 call plug#end()
 
 set number

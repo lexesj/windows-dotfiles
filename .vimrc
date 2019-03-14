@@ -26,6 +26,8 @@ set clipboard=unnamed
 set hlsearch
 set backspace=indent,eol,start
 set encoding=utf-8
+
+" File aware auto-completion
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 

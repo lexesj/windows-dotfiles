@@ -46,6 +46,7 @@ colorscheme gruvbox
 " ARM syntax
 au BufNewFile,BufRead *.s,*.S set filetype=arm
 autocmd FileType arm setlocal commentstring=;\ %s
+autocmd FileType processing setlocal commentstring=//\ %s
 
 " Vwrapper
 " set nonumber

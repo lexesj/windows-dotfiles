@@ -59,3 +59,19 @@ endif
 " Python
 let g:python3_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32\python.exe'
 let g:python_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32\python.exe'
+
+" Syntastic
+let g:syntastic_file_map = {"processing": "java"}
+
+" Processing
+" if &filetype == "processing"
+let sketch_path = "%cd%"
+let output_dir = "%temp%\\vim-processing\\output"
+let $command = "processing-java --sketch=" . sketch_path . " --output=" . output_dir . " --force --run"
+nnoremap <F6> <C-w>v<C-w>l:terminal<CR>:let @==$command<CR>:let @a=@=<CR>"api<CR>
+" endif
+
+" Terminal
+if has('nvim')
+  tnoremap <C-c> <C-\><C-n>
+endif

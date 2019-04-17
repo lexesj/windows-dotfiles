@@ -36,9 +36,6 @@ set omnifunc=syntaxcomplete#Complete
 set path+=**
 set wildmenu
 
-" IdeaVim tpope plugin
-" set surround
-
 " Gruvbox
 set termguicolors
 set bg=dark

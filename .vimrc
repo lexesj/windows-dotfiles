@@ -7,18 +7,31 @@ endif
 if has('unix')
   call plug#begin('~/.vim/plugged')
 endif
-  Plug 'morhetz/gruvbox'
-  Plug 'ARM9/arm-syntax-vim'
+  " QOL
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-vinegar'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-sleuth'
-  Plug 'vim-airline/vim-airline'
   Plug 'mhinz/vim-signify'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'dense-analysis/ale'
+
+  " UI changes
+  Plug 'vim-airline/vim-airline'
+  Plug 'morhetz/gruvbox'
+
+  " Syntax
+  Plug 'dense-analysis/ale' 
+  Plug 'ARM9/arm-syntax-vim'
+
+  " Autocomplete
+  Plug 'ncm2/ncm2'
+  Plug 'roxma/nvim-yarp'
+  Plug 'ncm2/ncm2-bufword'
+  Plug 'ncm2/ncm2-path'
+  Plug 'ncm2/ncm2-jedi'
+
 call plug#end()
 
 set number
@@ -54,6 +67,9 @@ endif
 " Python
 let g:python3_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32\python.exe'
 let g:python_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32\python.exe'
+
+" Ale
+let g:ale_linters = {'python': ['flake8']}
 
 " Terminal
 if has('nvim')

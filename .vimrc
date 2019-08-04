@@ -18,6 +18,7 @@ endif
   Plug 'vim-airline/vim-airline'
   Plug 'mhinz/vim-signify'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'dense-analysis/ale'
 call plug#end()
 
 set number

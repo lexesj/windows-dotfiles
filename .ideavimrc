@@ -1,0 +1,4 @@
+" IdeaVim tpope plugin
+set surround
+set number
+set relativenumber

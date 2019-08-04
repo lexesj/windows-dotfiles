@@ -104,5 +104,6 @@ let g:python_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32
   " Ale
   let g:ale_linters = {'python': ['flake8']}
 
-  " Keybinds
-  autocmd BufWinEnter *.py nnoremap <F3> :w<CR>:!python %<CR>
+" Keybinds
+autocmd BufWinEnter *.py nnoremap <F3> :w<CR>:!python %<CR>
+noremap <F5> :Autoformat<CR>

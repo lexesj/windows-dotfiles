@@ -59,3 +59,6 @@ let g:python_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32
 if has('nvim')
   tnoremap <C-c> <C-\><C-n>
 endif
+
+" vim-signify
+let g:signify_realtime = 1

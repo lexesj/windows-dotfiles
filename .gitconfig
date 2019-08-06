@@ -9,6 +9,7 @@
   packedGitLimit = 256m
   packedGitWindowSize = 256m
   longpaths = true
+	editor = nvim-qt.exe
 [http]
   postBuffer = 524288000
 [pack]

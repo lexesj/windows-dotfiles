@@ -1,12 +1,5 @@
-" Windows
-if has('win32')
-  call plug#begin('~/vimfiles/plugged')
-endif
+call plug#begin('~/.vim/plugged')
 
-" Unix
-if has('unix')
-  call plug#begin('~/.vim/plugged')
-endif
   " QOL
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'

@@ -57,8 +57,8 @@ autocmd FileType arm setlocal commentstring=;\ %s
 autocmd FileType processing setlocal commentstring=//\ %s
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+if maparg('<C-N>', 'n') ==# ''
+  nnoremap <silent> <C-N> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
 " vim-signify

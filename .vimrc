@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-sleuth'
   Plug 'mhinz/vim-signify'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'christoomey/vim-tmux-navigator'
 
   " UI changes
   Plug 'vim-airline/vim-airline'

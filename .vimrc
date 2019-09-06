@@ -75,7 +75,8 @@ if has('win32')
   let g:python_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32\python.exe'
 endif
 
-  " NCM2
+" NCM2
+if has('nvim')
   augroup NCM2
     autocmd!
     " enable ncm2 for all buffers
@@ -96,9 +97,11 @@ endif
     "           \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
     "           \ })
   augroup END
+endif
  
-  " Ale
-  let g:ale_linters = {'python': ['flake8']}
+" Ale
+let g:ale_linters = {'python': ['flake8']}
+
 
 " Keybinds
 autocmd BufWinEnter *.py nnoremap <F3> :w<CR>:!python %<CR>

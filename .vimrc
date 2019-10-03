@@ -33,6 +33,7 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 call glaive#Install()
+Glaive codefmt plugin[mappings]
 
 set number
 set relativenumber

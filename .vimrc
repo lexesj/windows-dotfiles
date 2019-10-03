@@ -27,9 +27,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'ncm2/ncm2-jedi'
 
   " Autoformat
-  Plug 'Chiel92/vim-autoformat'
+  Plug 'google/vim-maktaba'
+  Plug 'google/vim-codefmt'
+  Plug 'google/vim-glaive'
 
 call plug#end()
+call glaive#Install()
 
 set number
 set relativenumber
@@ -102,7 +105,16 @@ endif
 " Ale
 let g:ale_linters = {'python': ['flake8']}
 
+" Autoformat
 
-" Keybinds
-autocmd BufWinEnter *.py nnoremap <F3> :w<CR>:!python %<CR>
-noremap <F5> :Autoformat<CR>
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType vue AutoFormatBuffer prettier
+augroup END

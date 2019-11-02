@@ -31,6 +31,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'google/vim-codefmt'
   Plug 'google/vim-glaive'
 
+  " LaTex
+  Plug 'lervag/vimtex'
+
 call plug#end()
 call glaive#Install()
 Glaive codefmt plugin[mappings]

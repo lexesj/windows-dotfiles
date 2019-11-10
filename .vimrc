@@ -37,7 +37,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 call glaive#Install()
 Glaive codefmt plugin[mappings]
-let g:dir = "java -jar " . $HOME . "/.vim/formatters/google-java-format-1.7-all-deps.jar"
+let g:dir = "java -jar " . $HOME . "/.vim/formatters/google-java-format-1.7-all-deps.jar.jar"
 Glaive codefmt google_java_executable=`g:dir`
 
 set number
@@ -130,6 +130,7 @@ augroup autoformat_settings
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
   autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  " autocmd FileType java AutoFormatBuffer clang-format
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType vue AutoFormatBuffer prettier

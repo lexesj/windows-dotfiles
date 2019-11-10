@@ -46,6 +46,16 @@ set clipboard=unnamedplus
 set hlsearch
 set backspace=indent,eol,start
 set encoding=utf-8
+set colorcolumn=80
+
+" Spellcheck
+set complete+=kspell
+setlocal spell spelllang=en_gb
+augroup spellGroup
+    autocmd!
+    autocmd BufRead,BufNewFile *.md setlocal spell
+    autocmd BufRead,BufNewFile *.tex setlocal spell
+augroup END
 
 " File aware auto-completion
 filetype plugin on

@@ -51,11 +51,10 @@ set colorcolumn=80
 
 " Spellcheck
 set complete+=kspell
-setlocal spell spelllang=en_gb
 augroup spellGroup
     autocmd!
-    autocmd BufRead,BufNewFile *.md setlocal spell
-    autocmd BufRead,BufNewFile *.tex setlocal spell
+    autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
+    autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb
 augroup END
 
 " File aware auto-completion

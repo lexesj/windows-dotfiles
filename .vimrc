@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
 
   " UI changes
   Plug 'vim-airline/vim-airline'

@@ -18,7 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
 
   " Syntax
-  Plug 'dense-analysis/ale' 
+  Plug 'dense-analysis/ale'
   Plug 'ARM9/arm-syntax-vim'
 
   " Autocomplete
@@ -50,7 +50,7 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set colorcolumn=80
 
-autocmd BufWritePre * :%s/\s+$//e
+autocmd BufWritePre * :%s/\v\s+$//e
 
 " Spellcheck
 set complete+=kspell
@@ -120,7 +120,7 @@ if has('nvim')
               \ })
   augroup END
 endif
- 
+
 " Ale
 let g:ale_linters = {'python': ['flake8']}
 

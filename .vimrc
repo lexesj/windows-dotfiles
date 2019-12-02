@@ -39,7 +39,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 call glaive#Install()
 Glaive codefmt plugin[mappings]
-let g:dir = "java -jar " . $HOME . "/.vim/formatters/google-java-format-1.7-all-deps.jar.jar"
+let g:dir = "java -jar " . $HOME . "/.vim/formatters/google-java-format-1.7-all-deps.jar"
 Glaive codefmt google_java_executable=`g:dir`
 
 set number

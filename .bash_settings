@@ -4,3 +4,5 @@ alias ll="ls -l"
 alias la="ls -a"
 
 alias vim="nvim"
+
+eval $(keychain --eval --quiet ~/.ssh/mantiquillal)

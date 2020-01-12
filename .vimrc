@@ -44,7 +44,7 @@ Glaive codefmt google_java_executable=`g:dir`
 
 set number
 set relativenumber
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set hlsearch
 set backspace=indent,eol,start
 set encoding=utf-8

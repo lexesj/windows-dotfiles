@@ -2,3 +2,5 @@ set -o vi
 
 alias ll="ls -l"
 alias la="ls -a"
+
+alias vim="nvim"

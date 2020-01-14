@@ -5,4 +5,10 @@ alias la="ls -a"
 
 alias vim="nvim"
 
+# add ssh key to keychain
 eval $(keychain --eval --quiet ~/.ssh/mantiquillal)
+
+# add autoremove alias
+if [ eval `type pacman &>/dev/null` ]; then
+  alias autoremove="sudo pacman -Rns $(pacman -Qdtq)"
+fi

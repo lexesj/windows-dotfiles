@@ -47,6 +47,7 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set colorcolumn=80
 
+" Remove trailing whitespace
 autocmd BufWritePre * :%s/\v\s+$//e
 
 " Spellcheck

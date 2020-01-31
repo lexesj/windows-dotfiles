@@ -3,3 +3,4 @@ set surround
 set number
 set relativenumber
 set clipboard=unnamed
+set ideajoin

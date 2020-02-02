@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
 
   " Autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'honza/vim-snippets'
 
   " Autoformat
   Plug 'google/vim-maktaba'
@@ -87,12 +88,6 @@ if has('nvim')
   tnoremap <C-c> <C-\><C-n>
 endif
 
-" Python
-if has('win32')
-  let g:python3_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32\python.exe'
-  let g:python_host_prog='C:\Users\lexes\AppData\Local\Programs\Python\Python37-32\python.exe'
-endif
-
 " Autoformat
 " coc.nvim
 " if hidden is not set, TextEdit might fail.
@@ -106,7 +101,7 @@ set nowritebackup
 set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
+set updatetime=50
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c

@@ -17,6 +17,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'morhetz/gruvbox'
 
+  " Table
+  Plug 'dhruvasagar/vim-table-mode'
+
   " Syntax
   Plug 'ARM9/arm-syntax-vim'
 

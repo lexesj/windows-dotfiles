@@ -27,8 +27,6 @@ call plug#begin('~/.vim/plugged')
 
   " Syntax
   Plug 'ARM9/arm-syntax-vim'
-  Plug 'MaxMEllon/vim-jsx-pretty'
-  Plug 'pangloss/vim-javascript'
 
   " Autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}

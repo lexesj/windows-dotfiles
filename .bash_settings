@@ -5,6 +5,9 @@ alias la="ls -a"
 
 alias vim="nvim"
 
+# add open alias
+alias open="xdg-open &> /dev/null"
+
 # add ssh key to keychain
 eval $(keychain --eval --quiet ~/.ssh/mantiquillal)
 

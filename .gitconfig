@@ -1,6 +1,6 @@
 [user]
-  name = Lexes Mantiquilla
-  email = mystery32120@gmail.com
+  name = Lexes Jan Mantiquilla
+  email = mantiquillal@gmail.com
 [credentials]
   helper = wincred
 [credential]
@@ -10,6 +10,7 @@
   packedGitWindowSize = 256m
   longpaths = true
 	editor = nvim-qt.exe
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 [http]
   postBuffer = 524288000
 [pack]

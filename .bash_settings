@@ -9,11 +9,11 @@ alias vim="nvim"
 alias open="xdg-open &> /dev/null"
 
 # add ssh key to keychain
-if [ type keychain &>/dev/null ]; then
+if type keychain &>/dev/null; then
   eval $(keychain --eval --quiet ~/.ssh/mantiquillal)
 fi
 
 # add autoremove alias
-if [ type pacman &>/dev/null ]; then
+if type pacman &>/dev/null; then
   alias autoremove="sudo pacman -Rns $(pacman -Qdtq)"
 fi

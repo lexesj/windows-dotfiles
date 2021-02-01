@@ -17,3 +17,7 @@ fi
 if type pacman &>/dev/null; then
   alias autoremove="sudo pacman -Rns $(pacman -Qdtq)"
 fi
+
+# add fzf
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash

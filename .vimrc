@@ -14,7 +14,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mhinz/vim-signify'
   Plug 'jiangmiao/auto-pairs'
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'alvan/vim-closetag'
 

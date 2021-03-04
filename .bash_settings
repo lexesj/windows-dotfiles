@@ -8,6 +8,9 @@ alias vim="nvim"
 # add open alias
 alias open="xdg-open &> /dev/null"
 
+# add clear alias
+alias c="clear"
+
 # add ssh key to keychain
 if type keychain &>/dev/null; then
   eval $(keychain --eval --quiet ~/.ssh/mantiquillal)

@@ -21,3 +21,6 @@ fi
 # add fzf
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
+
+# add go binaries
+export PATH=$PATH:$(go env GOPATH)/bin

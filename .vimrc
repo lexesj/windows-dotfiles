@@ -79,6 +79,9 @@ au BufNewFile,BufRead *.s,*.S set filetype=arm
 autocmd FileType arm setlocal commentstring=;\ %s
 autocmd FileType processing setlocal commentstring=//\ %s
 
+" .bash_settings syntax
+au BufNewFile,BufRead *.bash_settings set filetype=sh
+
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-N>', 'n') ==# ''
   nnoremap <silent> <C-N> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>

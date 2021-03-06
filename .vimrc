@@ -95,12 +95,6 @@ if has('nvim')
   tnoremap <C-c> <C-\><C-n>
 endif
 
-" vim-javascript
-let g:javascript_plugin_jsdoc = 1
-
-" vim-closetag
-let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascriptreact,typescript'
-
 " vimtex
 let g:tex_flavor = 'latex'
 

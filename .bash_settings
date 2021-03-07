@@ -35,3 +35,13 @@ fi
 if type go &>/dev/null; then
   export PATH=$PATH:$(go env GOPATH)/bin
 fi
+
+# add fuzzy complete for code
+_fzf_setup_completion path code
+
+# infinite history size
+export HISTSIZE=
+export HISTFILESIZE=
+
+# add history date
+export HISTTIMEFORMAT="[%F %T] "

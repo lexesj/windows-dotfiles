@@ -45,3 +45,7 @@ export HISTFILESIZE=
 
 # add history date
 export HISTTIMEFORMAT="[%F %T] "
+
+# add git bash completion
+. ~/.git-prompt.sh
+. ~/.git-completion.bash

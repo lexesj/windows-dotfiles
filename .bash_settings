@@ -37,7 +37,9 @@ if type go &>/dev/null; then
 fi
 
 # add fuzzy complete for code
-_fzf_setup_completion path code
+if ! command -v _fzf_setup_completion &> /dev/null; then
+  _fzf_setup_completion path code
+fi
 
 # infinite history size
 export HISTSIZE=

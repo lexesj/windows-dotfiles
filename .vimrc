@@ -20,7 +20,7 @@ call plug#begin('~/.vim/plugged')
 
   " UI changes
   Plug 'vim-airline/vim-airline'
-  Plug 'morhetz/gruvbox'
+  Plug 'rafi/awesome-vim-colorschemes'
 
   " Table
   Plug 'dhruvasagar/vim-table-mode'
@@ -69,10 +69,13 @@ set omnifunc=syntaxcomplete#Complete
 set path+=**
 set wildmenu
 
-" Gruvbox
+" Colour scheme
+
 set termguicolors
-set bg=dark
-colorscheme gruvbox
+colorscheme onedark
+
+" Set background to none
+hi Normal guibg=NONE ctermbg=NONE
 
 " ARM syntax
 au BufNewFile,BufRead *.s,*.S set filetype=arm

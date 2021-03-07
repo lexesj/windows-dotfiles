@@ -1,5 +1,9 @@
 set -o vi
 
+# fix control+l
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
+
 alias ll="ls -l"
 alias la="ls -a"
 
@@ -28,7 +32,6 @@ if [ -d "/usr/share/fzf" ]; then
 fi
 
 # add go binaries
-
 if type go &>/dev/null; then
   export PATH=$PATH:$(go env GOPATH)/bin
 fi

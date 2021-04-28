@@ -83,7 +83,7 @@ autocmd FileType arm setlocal commentstring=;\ %s
 autocmd FileType processing setlocal commentstring=//\ %s
 
 " .bash_settings syntax
-au BufNewFile,BufRead *.bash_settings set filetype=sh
+au BufNewFile,BufRead *.bash_settings* set filetype=sh
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-N>', 'n') ==# ''

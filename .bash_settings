@@ -11,6 +11,7 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 alias ll="ls -l"
 alias la="ls -a"
+alias lah="ls -lah"
 
 alias vim="nvim"
 

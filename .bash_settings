@@ -1,4 +1,9 @@
+# enable vim mode
 set -o vi
+
+# set default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 # fix control+l
 bind -m vi-command 'Control-l: clear-screen'

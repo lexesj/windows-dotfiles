@@ -28,7 +28,7 @@ fi
 
 # add autoremove alias
 if type pacman &>/dev/null; then
-  alias autoremove="sudo pacman -Rns $(pacman -Qdtq)"
+  alias autoremove="sudo pacman -Qdtq | xargs sudo pacman -Rns --noconfirm"
 fi
 
 # add fzf

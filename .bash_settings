@@ -31,10 +31,16 @@ if type pacman &>/dev/null; then
   alias autoremove="sudo pacman -Qdtq | xargs sudo pacman -Rns --noconfirm"
 fi
 
-# add fzf
+# add fzf arch
 if [ -d "/usr/share/fzf" ]; then
   source /usr/share/fzf/key-bindings.bash
   source /usr/share/fzf/completion.bash
+fi
+
+# add fzf debian
+if [ -d "/usr/share/doc/fzf" ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.bash
+  source /usr/share/doc/fzf/examples/completion.bash
 fi
 
 # add go binaries

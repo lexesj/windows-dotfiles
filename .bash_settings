@@ -1,17 +1,65 @@
+# enable vim mode
 set -o vi
+
+# set default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# fix control+l
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
 
 alias ll="ls -l"
 alias la="ls -a"
+alias lah="ls -lah"
 
 alias vim="nvim"
 
 # add open alias
 alias open="xdg-open &> /dev/null"
 
+# add clear alias
+alias c="clear"
+
 # add ssh key to keychain
-eval $(keychain --eval --quiet ~/.ssh/mantiquillal)
+if type keychain &>/dev/null; then
+  eval $(keychain --eval --quiet ~/.ssh/mantiquillal)
+fi
 
 # add autoremove alias
-if [ eval `type pacman &>/dev/null` ]; then
-  alias autoremove="sudo pacman -Rns $(pacman -Qdtq)"
+if type pacman &>/dev/null; then
+  alias autoremove="sudo pacman -Qdtq | xargs sudo pacman -Rns --noconfirm"
 fi
+
+# add fzf arch
+if [ -d "/usr/share/fzf" ]; then
+  source /usr/share/fzf/key-bindings.bash
+  source /usr/share/fzf/completion.bash
+fi
+
+# add fzf debian
+if [ -d "/usr/share/doc/fzf" ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.bash
+  source /usr/share/doc/fzf/examples/completion.bash
+fi
+
+# add go binaries
+if type go &>/dev/null; then
+  export PATH=$PATH:$(go env GOPATH)/bin
+fi
+
+# add fuzzy complete for code
+if command -v _fzf_setup_completion &> /dev/null; then
+  _fzf_setup_completion path code
+fi
+
+# infinite history size
+export HISTSIZE=
+export HISTFILESIZE=
+
+# add history date
+export HISTTIMEFORMAT="[%F %T] "
+
+# add git bash completion
+. ~/.git-prompt.sh
+. ~/.git-completion.bash

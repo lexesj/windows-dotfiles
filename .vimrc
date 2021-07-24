@@ -14,13 +14,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'mhinz/vim-signify'
   Plug 'jiangmiao/auto-pairs'
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'alvan/vim-closetag'
 
   " UI changes
   Plug 'vim-airline/vim-airline'
-  Plug 'morhetz/gruvbox'
+  Plug 'rafi/awesome-vim-colorschemes'
 
   " Table
   Plug 'dhruvasagar/vim-table-mode'
@@ -69,15 +69,21 @@ set omnifunc=syntaxcomplete#Complete
 set path+=**
 set wildmenu
 
-" Gruvbox
+" Colour scheme
+
 set termguicolors
-set bg=dark
-colorscheme gruvbox
+colorscheme onedark
+
+" Set background to none
+hi Normal guibg=NONE ctermbg=NONE
 
 " ARM syntax
 au BufNewFile,BufRead *.s,*.S set filetype=arm
 autocmd FileType arm setlocal commentstring=;\ %s
 autocmd FileType processing setlocal commentstring=//\ %s
+
+" .bash_settings syntax
+au BufNewFile,BufRead *.bash_settings* set filetype=sh
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-N>', 'n') ==# ''
@@ -91,12 +97,6 @@ let g:signify_realtime = 1
 if has('nvim')
   tnoremap <C-c> <C-\><C-n>
 endif
-
-" vim-javascript
-let g:javascript_plugin_jsdoc = 1
-
-" vim-closetag
-let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascriptreact,typescript'
 
 " vimtex
 let g:tex_flavor = 'latex'
@@ -255,3 +255,16 @@ augroup autoformat_settings
   autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
+
+"------------------------------------------------------------------------------
+" Vimtex
+"------------------------------------------------------------------------------
+let g:vimtex_compiler_latexmk = {
+        \ 'executable' : 'latexmk',
+        \ 'options' : [
+        \   '-shell-escape',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \}

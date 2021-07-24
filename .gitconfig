@@ -4,3 +4,4 @@
 [core]
   longpaths = true
 	autocrlf = false
+	editor = nvim

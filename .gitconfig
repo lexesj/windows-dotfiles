@@ -3,5 +3,5 @@
   email = mantiquillal@gmail.com
 [core]
   longpaths = true
-	autocrlf = false
-	editor = nvim
+  autocrlf = false
+  editor = nvim

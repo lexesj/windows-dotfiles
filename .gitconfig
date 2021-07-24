@@ -1,21 +1,6 @@
 [user]
   name = Lexes Jan Mantiquilla
   email = mantiquillal@gmail.com
-[credentials]
-  helper = wincred
-[credential]
-  helper = wincred
 [core]
-  packedGitLimit = 256m
-  packedGitWindowSize = 256m
   longpaths = true
-	editor = nvim-qt.exe
-	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
-[http]
-  postBuffer = 524288000
-[pack]
-  deltaCacheSize = 256m
-  packSizeLimit = 256m
-  windowMemory = 1024m
-[merge]
-  tool = vimdiff
+	autocrlf = false

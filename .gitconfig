@@ -1,5 +1,7 @@
 [user]
-	email = mantiquillal@gmail.com
-	name = Lexes Jan Mantiquilla
+  name = Lexes Jan Mantiquilla
+  email = mantiquillal@gmail.com
 [core]
-	editor = nvim
+  longpaths = true
+  autocrlf = false
+  editor = nvim

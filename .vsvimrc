@@ -1,0 +1,4 @@
+set number
+set relativenumber
+set clipboard=unnamed
+nmap gc :vsc Edit.ToggleLineComment<CR>

@@ -6,6 +6,8 @@ if ($host.Name -eq 'ConsoleHost') {
 
     Import-Module PSFzf
 
+    Import-Module posh-git
+
     # Alias `cd` to change directory to home when no argument is passed.
     function ChangeDirectory {
         param(

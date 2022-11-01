@@ -72,19 +72,6 @@ if ($host.Name -eq 'ConsoleHost') {
         $GitPromptSettings.DefaultPromptSuffix = " $ "
     }
 
-    # function prompt {
-    #     $prompt = ""
-    #     if ($isAdmin) {
-    #         $prompt = Write-Prompt "[$(Get-Location)] # "
-    #     }
-    #     else {
-    #         $prompt = Write-Prompt "[$(Get-Location)] $ "
-    #     }
-
-    #     $prompt += & $GitPromptScriptBlock
-    #     $prompt
-    # }
-
     $Host.UI.RawUI.WindowTitle = "PowerShell {0}" -f $PSVersionTable.PSVersion.ToString()
     if ($isAdmin) {
         $Host.UI.RawUI.WindowTitle += " [ADMIN]"
@@ -125,7 +112,7 @@ if ($host.Name -eq 'ConsoleHost') {
             $psISE.CurrentPowerShellTab.Files.Add($profile.CurrentUserAllHosts)
         }
         else {
-            notepad $profile.CurrentUserAllHosts
+            code $profile.CurrentUserAllHosts
         }
     }
 

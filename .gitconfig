@@ -5,3 +5,5 @@
   longpaths = true
   autocrlf = false
   editor = nvim
+[push]
+  autoSetupRemote = true

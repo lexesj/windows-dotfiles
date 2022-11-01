@@ -17,3 +17,5 @@
   deltaCacheSize = 256m
   packSizeLimit = 256m
   windowMemory = 1024m
+[push]
+  autoSetupRemote = true

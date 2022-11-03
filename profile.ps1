@@ -44,7 +44,7 @@ if ($host.Name -eq 'ConsoleHost') {
     # Creates drive shortcut for OneDrive, if current user account is using it
     if (Test-Path HKCU:\SOFTWARE\Microsoft\OneDrive) {
         $onedrive = Get-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\OneDrive
-        if (Test-Path $onedrive.UserFolder) {
+        if ($onedrive.UserFolder -And (Test-Path $onedrive.UserFolder)) {
             New-PSDrive -Name OneDrive -PSProvider FileSystem -Root $onedrive.UserFolder -Description "OneDrive"
             function OneDrive: { Set-Location OneDrive: }
         }

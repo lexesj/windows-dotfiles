@@ -24,15 +24,6 @@ if ($host.Name -eq 'ConsoleHost') {
     $principal = New-Object Security.Principal.WindowsPrincipal $identity
     $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
-    # If so and the current host is a command line, then change to red color
-    # as warning to user that they are operating in an elevated context
-    if (($host.Name -match "ConsoleHost") -and ($isAdmin)) {
-        $host.UI.RawUI.BackgroundColor = "DarkRed"
-        $host.PrivateData.ErrorBackgroundColor = "White"
-        $host.PrivateData.ErrorForegroundColor = "DarkRed"
-        Clear-Host
-    }
-
     # Useful shortcuts for traversing directories
     function cd... { Set-Location ..\.. }
     function cd.... { Set-Location ..\..\.. }

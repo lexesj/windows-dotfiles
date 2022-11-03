@@ -14,9 +14,7 @@
 ### more information about execution policies, run Get-Help about_Execution_Policies.
 
 if ($host.Name -eq 'ConsoleHost') {
-    # Imports
-    Import-Module PSReadLine
-    Import-Module PSFzf
+    # Early imports
     Import-Module posh-git
 
     # Find out if the current user identity is elevated (has admin rights)
@@ -131,4 +129,12 @@ if ($host.Name -eq 'ConsoleHost') {
     }
     Remove-Item alias:\cd
     New-Alias cd ChangeDirectory
+
+    # Imports
+    Import-Module PSReadLine
+    Import-Module PSFzf
+
+    Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+    Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+    Set-PsFzfOption -TabExpansion
 }

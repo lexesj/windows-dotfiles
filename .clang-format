@@ -1,7 +1,0 @@
----
-# Default style is Google
-BasedOnStyle: Google
----
-Language: Java
-AllowShortIfStatementsOnASingleLine: true
----

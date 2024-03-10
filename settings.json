@@ -28,7 +28,7 @@
   ],
   "copyFormatting": "none",
   "copyOnSelect": false,
-  "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+  "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
   "multiLinePasteWarning": false,
   "newTabMenu": [
     {
@@ -44,17 +44,18 @@
     },
     "list": [
       {
-        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
         "hidden": false,
-        "name": "Windows PowerShell"
+        "name": "PowerShell",
+        "source": "Windows.Terminal.PowershellCore"
       },
       {
-        "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "commandline": "pwsh.exe",
         "elevate": true,
         "guid": "{b52e3571-ce2d-490a-8192-bdd76b8c8234}",
         "hidden": false,
-        "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
-        "name": "Windows PowerShell (Admin)"
+        "icon": "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
+        "name": "PowerShell (Admin)"
       },
       {
         "commandline": "wsl.exe ~",

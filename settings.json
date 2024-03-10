@@ -14,16 +14,16 @@
       "keys": "ctrl+c"
     },
     {
+      "command": "find",
+      "keys": "ctrl+shift+f"
+    },
+    {
       "command": {
         "action": "splitPane",
         "split": "auto",
         "splitMode": "duplicate"
       },
       "keys": "alt+shift+d"
-    },
-    {
-      "command": "find",
-      "keys": "ctrl+shift+f"
     }
   ],
   "copyFormatting": "none",

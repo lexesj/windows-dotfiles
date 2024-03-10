@@ -1,21 +1,8 @@
 [user]
   name = Lexes Jan Mantiquilla
   email = mantiquillal@gmail.com
-[credentials]
-  helper = wincred
-[credential]
-  helper = wincred
 [core]
-  packedGitLimit = 256m
-  packedGitWindowSize = 256m
   longpaths = true
-  sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 	autocrlf = false
-[http]
-  postBuffer = 524288000
-[pack]
-  deltaCacheSize = 256m
-  packSizeLimit = 256m
-  windowMemory = 1024m
 [push]
   autoSetupRemote = true

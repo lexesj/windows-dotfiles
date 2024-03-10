@@ -14,16 +14,16 @@
       "keys": "ctrl+c"
     },
     {
-      "command": "find",
-      "keys": "ctrl+shift+f"
-    },
-    {
       "command": {
         "action": "splitPane",
         "split": "auto",
         "splitMode": "duplicate"
       },
       "keys": "alt+shift+d"
+    },
+    {
+      "command": "find",
+      "keys": "ctrl+shift+f"
     }
   ],
   "copyFormatting": "none",
@@ -44,13 +44,6 @@
     },
     "list": [
       {
-        "commandline": "wsl.exe ~",
-        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-        "hidden": false,
-        "name": "Ubuntu",
-        "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
-      },
-      {
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "hidden": false,
         "name": "Windows PowerShell"
@@ -62,6 +55,13 @@
         "hidden": false,
         "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
         "name": "Windows PowerShell (Admin)"
+      },
+      {
+        "commandline": "wsl.exe ~",
+        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+        "hidden": false,
+        "name": "Ubuntu",
+        "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
       }
     ]
   },

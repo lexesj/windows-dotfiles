@@ -22,12 +22,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'rafi/awesome-vim-colorschemes'
 
-  " Table
-  Plug 'dhruvasagar/vim-table-mode'
-
-  " Syntax
-  Plug 'ARM9/arm-syntax-vim'
-
   " Autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'honza/vim-snippets'
@@ -36,9 +30,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'google/vim-maktaba'
   Plug 'google/vim-codefmt'
   Plug 'google/vim-glaive'
-
-  " LaTex
-  Plug 'lervag/vimtex'
 
 call plug#end()
 call glaive#Install()

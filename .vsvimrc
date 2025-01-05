@@ -1,4 +1,5 @@
 set number
 set relativenumber
 set clipboard=unnamed
+set textwidth=120
 nmap gc :vsc Edit.ToggleLineComment<CR>

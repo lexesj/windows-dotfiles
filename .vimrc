@@ -22,12 +22,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'rafi/awesome-vim-colorschemes'
 
-  " Table
-  Plug 'dhruvasagar/vim-table-mode'
-
-  " Syntax
-  Plug 'ARM9/arm-syntax-vim'
-
   " Autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'honza/vim-snippets'
@@ -36,9 +30,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'google/vim-maktaba'
   Plug 'google/vim-codefmt'
   Plug 'google/vim-glaive'
-
-  " LaTex
-  Plug 'lervag/vimtex'
 
 call plug#end()
 call glaive#Install()
@@ -77,11 +68,6 @@ colorscheme onedark
 " Set background to none
 hi Normal guibg=NONE ctermbg=NONE
 
-" ARM syntax
-au BufNewFile,BufRead *.s,*.S set filetype=arm
-autocmd FileType arm setlocal commentstring=;\ %s
-autocmd FileType processing setlocal commentstring=//\ %s
-
 " .bash_settings syntax
 au BufNewFile,BufRead *.bash_settings* set filetype=sh
 
@@ -97,9 +83,6 @@ let g:signify_realtime = 1
 if has('nvim')
   tnoremap <C-c> <C-\><C-n>
 endif
-
-" vimtex
-let g:tex_flavor = 'latex'
 
 " Move vertically by visual line with j and k
 nnoremap j gj
@@ -259,16 +242,3 @@ augroup autoformat_settings
   autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
-
-"------------------------------------------------------------------------------
-" Vimtex
-"------------------------------------------------------------------------------
-let g:vimtex_compiler_latexmk = {
-        \ 'executable' : 'latexmk',
-        \ 'options' : [
-        \   '-shell-escape',
-        \   '-file-line-error',
-        \   '-synctex=1',
-        \   '-interaction=nonstopmode',
-        \ ],
-        \}

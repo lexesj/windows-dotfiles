@@ -68,11 +68,6 @@ colorscheme onedark
 " Set background to none
 hi Normal guibg=NONE ctermbg=NONE
 
-" ARM syntax
-au BufNewFile,BufRead *.s,*.S set filetype=arm
-autocmd FileType arm setlocal commentstring=;\ %s
-autocmd FileType processing setlocal commentstring=//\ %s
-
 " .bash_settings syntax
 au BufNewFile,BufRead *.bash_settings* set filetype=sh
 

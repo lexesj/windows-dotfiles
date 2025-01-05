@@ -84,9 +84,6 @@ if has('nvim')
   tnoremap <C-c> <C-\><C-n>
 endif
 
-" vimtex
-let g:tex_flavor = 'latex'
-
 " Move vertically by visual line with j and k
 nnoremap j gj
 nnoremap k gk

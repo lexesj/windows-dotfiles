@@ -242,16 +242,3 @@ augroup autoformat_settings
   autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
-
-"------------------------------------------------------------------------------
-" Vimtex
-"------------------------------------------------------------------------------
-let g:vimtex_compiler_latexmk = {
-        \ 'executable' : 'latexmk',
-        \ 'options' : [
-        \   '-shell-escape',
-        \   '-file-line-error',
-        \   '-synctex=1',
-        \   '-interaction=nonstopmode',
-        \ ],
-        \}

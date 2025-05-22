@@ -88,11 +88,18 @@
             },
             {
                 "colorScheme": "Catppuccin Frappe",
-                "commandline": "wsl.exe ~",
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "commandline": "ubuntu.exe",
+                "cursorShape": "filledBox",
+                "font": 
+                {
+                    "face": "JetBrainsMono Nerd Font Mono",
+                    "size": 13
+                },
+                "guid": "{45e90c1f-01d4-49e4-882d-dcee20a7934c}",
                 "hidden": false,
+                "icon": "https://assets.ubuntu.com/v1/49a1a858-favicon-32x32.png",
                 "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+                "tabTitle": "Ubuntu"
             }
         ]
     },

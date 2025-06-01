@@ -135,4 +135,9 @@ if ($host.Name -eq 'ConsoleHost') {
     Import-Module PSFzf
 
     Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+
+    # Fast Node Manager.
+    if (Get-Command "fnm" -errorAction SilentlyContinue) {
+        fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+    }
 }

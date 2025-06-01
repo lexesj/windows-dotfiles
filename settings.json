@@ -71,7 +71,12 @@
         "list": 
         [
             {
+                "colorScheme": "Catppuccin Frappe",
                 "commandline": "pwsh.exe",
+                "font": 
+                {
+                    "face": "JetBrainsMono Nerd Font Mono"
+                },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "icon": "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
@@ -80,25 +85,30 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
+                "colorScheme": "Catppuccin Frappe",
                 "commandline": "pwsh.exe",
                 "elevate": true,
+                "font": 
+                {
+                    "face": "JetBrainsMono Nerd Font Mono"
+                },
                 "guid": "{b52e3571-ce2d-490a-8192-bdd76b8c8234}",
                 "hidden": false,
                 "icon": "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
                 "name": "PowerShell (Admin)"
             },
             {
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
                 "colorScheme": "Catppuccin Frappe",
                 "cursorShape": "filledBox",
                 "font": 
                 {
                     "face": "JetBrainsMono Nerd Font Mono",
                     "size": 13
-                }
+                },
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             }
         ]
     },

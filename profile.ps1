@@ -101,7 +101,7 @@ if ($host.Name -eq 'ConsoleHost') {
             $psISE.CurrentPowerShellTab.Files.Add($profile.CurrentUserAllHosts)
         }
         else {
-            code $profile.CurrentUserAllHosts
+            nvim $profile.CurrentUserAllHosts
         }
     }
 
@@ -140,4 +140,7 @@ if ($host.Name -eq 'ConsoleHost') {
     if (Get-Command "fnm" -errorAction SilentlyContinue) {
         fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
     }
+
+    # Neovim as main editor.
+    $Env:EDITOR = "nvim"
 }

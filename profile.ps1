@@ -142,8 +142,8 @@ if ($host.Name -eq 'ConsoleHost') {
     }
 
     # Neovim as main editor.
-    $Env:EDITOR = "nvim"
+    $env:EDITOR = "nvim"
 
     # Set default shell as PowerShell.
-    $Env:SHELL = "pwsh"
+    $env:SHELL = "pwsh"
 }

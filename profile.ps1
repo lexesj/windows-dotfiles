@@ -141,6 +141,11 @@ if ($host.Name -eq 'ConsoleHost') {
         fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
     }
 
+    # Zoxide.
+    if (Get-Command "zoxide" -errorAction SilentlyContinue) {
+        Invoke-Expression (& { (zoxide init powershell | Out-String) })
+    }
+
     # Neovim as main editor.
     $env:EDITOR = "nvim"
 

@@ -143,7 +143,7 @@ if ($host.Name -eq 'ConsoleHost') {
 
     # Zoxide.
     if (Get-Command "zoxide" -errorAction SilentlyContinue) {
-        Invoke-Expression (& { (zoxide init powershell | Out-String) })
+        Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
     }
 
     # Neovim as main editor.

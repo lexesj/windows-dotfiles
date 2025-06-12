@@ -94,7 +94,6 @@ if ($host.Name -eq 'ConsoleHost') {
     Set-Alias -Name su -Value admin
     Set-Alias -Name sudo -Value admin
 
-
     # Make it easy to edit this profile once it's installed
     function Edit-Profile {
         nvim $profile.CurrentUserAllHosts

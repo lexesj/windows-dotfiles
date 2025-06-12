@@ -97,12 +97,7 @@ if ($host.Name -eq 'ConsoleHost') {
 
     # Make it easy to edit this profile once it's installed
     function Edit-Profile {
-        if ($host.Name -match "ise") {
-            $psISE.CurrentPowerShellTab.Files.Add($profile.CurrentUserAllHosts)
-        }
-        else {
-            nvim $profile.CurrentUserAllHosts
-        }
+        nvim $profile.CurrentUserAllHosts
     }
 
     # We don't need these any more; they were just temporary variables to get to $isAdmin.

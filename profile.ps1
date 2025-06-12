@@ -13,7 +13,8 @@
 ### This is the default policy on Windows Server 2012 R2 and above for server Windows. For
 ### more information about execution policies, run Get-Help about_Execution_Policies.
 
-if ($host.Name -eq 'ConsoleHost') {
+if ($host.Name -eq 'ConsoleHost')
+{
     # Early imports
     Import-Module posh-git
 
@@ -23,28 +24,50 @@ if ($host.Name -eq 'ConsoleHost') {
     $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
     # Useful shortcuts for traversing directories
-    function cd... { Set-Location ..\.. }
-    function cd.... { Set-Location ..\..\.. }
+    function cd...
+    { Set-Location ..\.. 
+    }
+    function cd....
+    { Set-Location ..\..\.. 
+    }
 
     # Compute file hashes - useful for checking successful downloads
-    function md5 { Get-FileHash -Algorithm MD5 $args }
-    function sha1 { Get-FileHash -Algorithm SHA1 $args }
-    function sha256 { Get-FileHash -Algorithm SHA256 $args }
+    function md5
+    { Get-FileHash -Algorithm MD5 $args 
+    }
+    function sha1
+    { Get-FileHash -Algorithm SHA1 $args 
+    }
+    function sha256
+    { Get-FileHash -Algorithm SHA256 $args 
+    }
 
     # Quick shortcut to start notepad
-    function n { notepad $args }
+    function n
+    { notepad $args 
+    }
 
     # Drive shortcuts
-    function HKLM: { Set-Location HKLM: }
-    function HKCU: { Set-Location HKCU: }
-    function Env: { Set-Location Env: }
+    function HKLM:
+    { Set-Location HKLM: 
+    }
+    function HKCU:
+    { Set-Location HKCU: 
+    }
+    function Env:
+    { Set-Location Env: 
+    }
 
     # Creates drive shortcut for OneDrive, if current user account is using it
-    if (Test-Path HKCU:\SOFTWARE\Microsoft\OneDrive) {
+    if (Test-Path HKCU:\SOFTWARE\Microsoft\OneDrive)
+    {
         $onedrive = Get-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\OneDrive
-        if ($onedrive.UserFolder -And (Test-Path $onedrive.UserFolder)) {
+        if ($onedrive.UserFolder -And (Test-Path $onedrive.UserFolder))
+        {
             New-PSDrive -Name OneDrive -PSProvider FileSystem -Root $onedrive.UserFolder -Description "OneDrive"
-            function OneDrive: { Set-Location OneDrive: }
+            function OneDrive:
+            { Set-Location OneDrive: 
+            }
         }
         Remove-Variable onedrive
     }
@@ -54,24 +77,28 @@ if ($host.Name -eq 'ConsoleHost') {
     # and appends [ADMIN] if appropriate for easy taskbar identification
     $GitPromptSettings.BeforePath = "["
     $GitPromptSettings.AfterPath = "]"
-    if ($isAdmin) {
+    if ($isAdmin)
+    {
         $GitPromptSettings.DefaultPromptSuffix = " # "
-    }
-    else {
+    } else
+    {
         $GitPromptSettings.DefaultPromptSuffix = " $ "
     }
 
     $Host.UI.RawUI.WindowTitle = "PowerShell {0}" -f $PSVersionTable.PSVersion.ToString()
-    if ($isAdmin) {
+    if ($isAdmin)
+    {
         $Host.UI.RawUI.WindowTitle += " [ADMIN]"
     }
 
     # Does the the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
-    function dirs {
-        if ($args.Count -gt 0) {
+    function dirs
+    {
+        if ($args.Count -gt 0)
+        {
             Get-ChildItem -Recurse -Include "$args" | Foreach-Object FullName
-        }
-        else {
+        } else
+        {
             Get-ChildItem -Recurse | Foreach-Object FullName
         }
     }
@@ -79,12 +106,14 @@ if ($host.Name -eq 'ConsoleHost') {
     # Simple function to start a new elevated process. If arguments are supplied then
     # a single command is started with admin rights; if not then a new admin instance
     # of PowerShell is started.
-    function admin {
-        if ($args.Count -gt 0) {
+    function admin
+    {
+        if ($args.Count -gt 0)
+        {
             $argList = "& '" + $args + "'"
             Start-Process "$psHome\pwsh.exe" -Verb runAs -ArgumentList $argList
-        }
-        else {
+        } else
+        {
             Start-Process "$psHome\pwsh.exe" -Verb runAs
         }
     }
@@ -95,7 +124,8 @@ if ($host.Name -eq 'ConsoleHost') {
     Set-Alias -Name sudo -Value admin
 
     # Make it easy to edit this profile once it's installed
-    function Edit-Profile {
+    function Edit-Profile
+    {
         nvim $profile.CurrentUserAllHosts
     }
 
@@ -115,12 +145,14 @@ if ($host.Name -eq 'ConsoleHost') {
     Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
     # Fast Node Manager.
-    if (Get-Command "fnm" -errorAction SilentlyContinue) {
+    if (Get-Command "fnm" -errorAction SilentlyContinue)
+    {
         fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
     }
 
     # Zoxide.
-    if (Get-Command "zoxide" -errorAction SilentlyContinue) {
+    if (Get-Command "zoxide" -errorAction SilentlyContinue)
+    {
         Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
     }
 

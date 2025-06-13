@@ -34,33 +34,6 @@ function cd....
 { Set-Location ..\..\.. 
 }
 
-# Compute file hashes - useful for checking successful downloads
-function md5
-{ Get-FileHash -Algorithm MD5 $args 
-}
-function sha1
-{ Get-FileHash -Algorithm SHA1 $args 
-}
-function sha256
-{ Get-FileHash -Algorithm SHA256 $args 
-}
-
-# Quick shortcut to start notepad
-function n
-{ notepad $args 
-}
-
-# Drive shortcuts
-function HKLM:
-{ Set-Location HKLM: 
-}
-function HKCU:
-{ Set-Location HKCU: 
-}
-function Env:
-{ Set-Location Env: 
-}
-
 # Creates drive shortcut for OneDrive, if current user account is using it
 if (Test-Path HKCU:\SOFTWARE\Microsoft\OneDrive)
 {

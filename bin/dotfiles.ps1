@@ -14,14 +14,14 @@ $DOTFILES_DIR = "$HOME\.windows-dotfiles"
 
 function Test-IsAdmin
 {
-    $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
-    $principal = New-Object Security.Principal.WindowsPrincipal $identity
-    $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    $Identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $Principal = New-Object Security.Principal.WindowsPrincipal $Identity
+    $IsAdmin = $Principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
     return $isAdmin
 }
 
-$installedPrograms = winget list | Out-String
+$InstalledPrograms = winget list | Out-String
 
 function Install-Program
 {
@@ -37,7 +37,7 @@ function Install-Program
         [string]$ProgramName
     )
 
-    if ($installedPrograms -notmatch $ProgramName)
+    if ($InstalledPrograms -notmatch $ProgramName)
     {
         Write-Host "Installing $ProgramName..."
         winget install $ProgramName
@@ -76,12 +76,12 @@ if (!(Test-Path -Path $DOTFILES_DIR))
 function Install-PowerShell
 {
     Install-Program Microsoft.PowerShell
-    foreach ($module in @("PSReadLine", "PSFzf", "posh-git"))
+    foreach ($Module in @("PSReadLine", "PSFzf", "posh-git"))
     {
-        if (!(Get-Module -ListAvailable -Name $module))
+        if (!(Get-Module -ListAvailable -Name $Module))
         {
-            Write-Host "Installing PowerShell module: $module..."
-            Install-Module -Name $module -Force
+            Write-Host "Installing PowerShell module: $Module..."
+            Install-Module -Name $Module -Force
         }
     }
 
@@ -90,9 +90,9 @@ function Install-PowerShell
 
 function Install-Vim
 {
-    foreach ($program in @("Neovim.Neovim", "zig.zig"))
+    foreach ($Program in @("Neovim.Neovim", "zig.zig"))
     {
-        Install-Program $program
+        Install-Program $Program
     }
 
     New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$DOTFILES_DIR\.vsvimrc" -Force
@@ -100,9 +100,9 @@ function Install-Vim
 
 function Install-Terminal
 {
-    foreach ($program in @("Microsoft.WindowsTerminal", "DEVCOM.JetBrainsMonoNerdFont"))
+    foreach ($Program in @("Microsoft.WindowsTerminal", "DEVCOM.JetBrainsMonoNerdFont"))
     {
-        Install-Program $program
+        Install-Program $Program
     }
 
     New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" -Target "$DOTFILES_DIR\windows-terminal\settings.json" -Force
@@ -117,13 +117,13 @@ function Install-PowerToys
 
 function Install-CliTools
 {
-    foreach ($program in @("junegunn.fzf", "JesseDuffield.lazygit", "Schniz.fnm", "BurntSushi.ripgrep.MSVC", "sharkdp.fd"))
+    foreach ($Program in @("junegunn.fzf", "JesseDuffield.lazygit", "Schniz.fnm", "BurntSushi.ripgrep.MSVC", "sharkdp.fd"))
     {
-        Install-Program $program
+        Install-Program $Program
     }
 }
 
-foreach ($tag in $Tags)
+foreach ($Tag in $Tags)
 {
-    & (Get-Command -Name "Install-$tag")
+    & (Get-Command -Name "Install-$Tag")
 }

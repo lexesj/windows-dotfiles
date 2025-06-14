@@ -1,3 +1,15 @@
+<#
+.SYNOPSIS
+    Script that downloads programs and configures dotfiles for a development environment.
+
+.PARAMETER Tags
+    Used to filter the installation of dotfiles and programs. If not specified, all dotfiles and programs are installed.
+#>
+param
+(
+    [string[]]$Tags
+)
+
 $DOTFILES_DIR = "$HOME\.windows-dotfiles"
 
 function Test-IsAdmin

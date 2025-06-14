@@ -108,6 +108,13 @@ function Install-Terminal
     New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" -Target "$DOTFILES_DIR\windows-terminal\settings.json" -Force
 }
 
+function Install-PowerToys
+{
+    Install-Program Microsoft.PowerToys
+
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\Keyboard Manager\default.json" -Target "$DOTFILES_DIR\powertoys\keyboard\default.json" -Force
+}
+
 foreach ($tag in $Tags)
 {
     & (Get-Command -Name "Install-$tag")

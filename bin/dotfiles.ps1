@@ -95,6 +95,7 @@ function Install-Vim
         Install-Program $Program
     }
 
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$DOTFILES_DIR\unix-dotfiles\roles\neovim\files\nvim" -Force
     New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$DOTFILES_DIR\.vsvimrc" -Force
 }
 

@@ -34,33 +34,37 @@ function Install-Program
     #>
     param
     (
-        [string]$ProgramName
+        [string]$ProgramName,
+        [bool]$Update = $true
     )
 
     if ($InstalledPrograms -notmatch $ProgramName)
     {
         Write-Host "Installing $ProgramName..."
         winget install $ProgramName
-    } else
+    } elseif ($Update)
     {
         Write-Host "Updating $ProgramName..."
         winget upgrade $ProgramName
     }
 }
 
+function Install-Dependencies
+{
+    foreach ($Program in @("Microsoft.WindowsTerminal", "Microsoft.PowerShell", "Git.Git"))
+    {
+        Install-Program $Program -Update $false
+    }
+}
+
+Install-Dependencies
+
 if (!(Test-IsAdmin))
 {
-    Write-Error "Please re-run this script as an administrator."
-    exit 1
+    Write-Host "Running script as administrator..."
+    Start-Process wt -Verb runAs -ArgumentList ("-- pwsh -NoExit -File $PSCommandPath -Tags" + ($Tags -join ","))
+    return
 }
-
-function Install-Git
-{
-    Install-Program Git.Git
-    New-Item -ItemType SymbolicLink -Path "$HOME\.gitconfig" -Target "$DOTFILES_DIR\.gitconfig" -Force
-}
-
-Install-Git
 
 if (!(Test-Path -Path $DOTFILES_DIR))
 {
@@ -72,6 +76,11 @@ if (!(Test-Path -Path $DOTFILES_DIR))
     git -C "$DOTFILES_DIR" pull --quiet --recurse-submodules
 }
 
+function Install-Git
+{
+    Install-Program Git.Git
+    New-Item -ItemType SymbolicLink -Path "$HOME\.gitconfig" -Target "$DOTFILES_DIR\.gitconfig" -Force
+}
 
 function Install-PowerShell
 {

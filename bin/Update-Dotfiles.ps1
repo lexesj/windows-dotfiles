@@ -42,7 +42,8 @@ if (!(Test-Path -Path $DOTFILES_DIR))
 } else
 {
     Write-Host "Updating dotfiles repository..."
-    git -C "$DOTFILES_DIR" pull --quiet --recurse-submodules
+    git -C "$DOTFILES_DIR" pull --quiet
+    git submodule update --remote
 }
 
 function Test-IsAdmin

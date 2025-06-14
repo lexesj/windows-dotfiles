@@ -7,7 +7,7 @@
 #>
 param
 (
-    [string[]]$Tags = @("PowerShell", "Vim", "Terminal")
+    [string[]]$Tags = @("PowerShell", "Vim", "Terminal", "PowerToys", "CliTools")
 )
 
 $DOTFILES_DIR = "$HOME\.windows-dotfiles"
@@ -113,6 +113,14 @@ function Install-PowerToys
     Install-Program Microsoft.PowerToys
 
     New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\Keyboard Manager\default.json" -Target "$DOTFILES_DIR\powertoys\keyboard\default.json" -Force
+}
+
+function Install-CliTools
+{
+    foreach ($program in @("junegunn.fzf", "JesseDuffield.lazygit", "Schniz.fnm", "BurntSushi.ripgrep.MSVC", "sharkdp.fd"))
+    {
+        Install-Program $program
+    }
 }
 
 foreach ($tag in $Tags)

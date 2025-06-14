@@ -1,4 +1,4 @@
-$DOTFILES_DIR = "$HOME/.windows-dotfiles"
+$DOTFILES_DIR = "$HOME\.windows-dotfiles"
 
 function Test-IsAdmin
 {
@@ -22,6 +22,12 @@ function Install-Dependencies
 		Write-Host "Installing PowerShell..."
 		winget install Microsoft.PowerShell
 	}
+}
+
+if (!(Test-IsAdmin))
+{
+	Write-Error "Please re-run this script as an administrator."
+	exit 1
 }
 
 Install-Dependencies

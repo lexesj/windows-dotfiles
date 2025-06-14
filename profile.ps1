@@ -26,14 +26,6 @@ $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
 $principal = New-Object Security.Principal.WindowsPrincipal $identity
 $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
-# Useful shortcuts for traversing directories
-function cd...
-{ Set-Location ..\.. 
-}
-function cd....
-{ Set-Location ..\..\.. 
-}
-
 # Creates drive shortcut for OneDrive, if current user account is using it
 if (Test-Path HKCU:\SOFTWARE\Microsoft\OneDrive)
 {

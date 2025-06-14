@@ -54,7 +54,13 @@ if (!(Test-IsAdmin))
     exit 1
 }
 
-Install-Program Git.Git
+function Install-Git
+{
+    Install-Program Git.Git
+    New-Item -ItemType SymbolicLink -Path "$HOME\.gitconfig" -Target "$DOTFILES_DIR\.gitconfig" -Force
+}
+
+Install-Git
 
 if (!(Test-Path -Path $DOTFILES_DIR))
 {

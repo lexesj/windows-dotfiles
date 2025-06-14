@@ -7,7 +7,7 @@
 #>
 param
 (
-    [string[]]$Tags
+    [string[]]$Tags = @("PowerShell", "Vim")
 )
 
 $DOTFILES_DIR = "$HOME\.windows-dotfiles"
@@ -21,18 +21,30 @@ function Test-IsAdmin
     return $isAdmin
 }
 
-function Install-Dependencies
-{
-    if (!(Get-Command git -errorAction SilentlyContinue))
-    {
-        Write-Host "Installing git..."
-        winget install Git.Git
-    }
+$installedPrograms = winget list | Out-String
 
-    if (!(Get-Command pwsh -errorAction SilentlyContinue))
+function Install-Program
+{
+    <#
+    .SYNOPSIS
+        Installs a program using the Windows Package Manager (winget).
+
+    .PARAMETER ProgramName
+        The name of the program to be installed.
+    #>
+    param
+    (
+        [string]$ProgramName
+    )
+
+    if ($installedPrograms -notmatch $ProgramName)
     {
-        Write-Host "Installing PowerShell..."
-        winget install Microsoft.PowerShell
+        Write-Host "Installing $ProgramName..."
+        winget install $ProgramName
+    } else
+    {
+        Write-Host "Updating $ProgramName..."
+        winget upgrade $ProgramName
     }
 }
 
@@ -42,7 +54,7 @@ if (!(Test-IsAdmin))
     exit 1
 }
 
-Install-Dependencies
+Install-Program Git.Git
 
 if (!(Test-Path -Path $DOTFILES_DIR))
 {
@@ -52,4 +64,35 @@ if (!(Test-Path -Path $DOTFILES_DIR))
 {
     Write-Host "Updating dotfiles repository..."
     git -C "$DOTFILES_DIR" pull --quiet
+}
+
+
+function Install-PowerShell
+{
+    Install-Program Microsoft.PowerShell
+    foreach ($module in @("PSReadLine", "PSFzf", "posh-git"))
+    {
+        if (!(Get-Module -ListAvailable -Name $module))
+        {
+            Write-Host "Installing PowerShell module: $module..."
+            Install-Module -Name $module -Force
+        }
+    }
+
+    New-Item -ItemType SymbolicLink -Path "$([Environment]::GetFolderPath("MyDocuments"))\PowerShell\profile.ps1" -Target "$DOTFILES_DIR\profile.ps1" -Force
+}
+
+function Install-Vim
+{
+    foreach ($program in @("Neovim.Neovim", "zig.zig"))
+    {
+        Install-Program $program
+    }
+
+    New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$DOTFILES_DIR\.vsvimrc" -Force
+}
+
+foreach ($tag in $Tags)
+{
+    & (Get-Command -Name "Install-$tag")
 }

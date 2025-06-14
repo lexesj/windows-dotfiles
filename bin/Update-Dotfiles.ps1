@@ -57,7 +57,7 @@ function Test-IsAdmin
 if (!(Test-IsAdmin))
 {
     Write-Host "Running script as administrator..."
-    Start-Process wt -Verb runAs -ArgumentList ("-- pwsh -NoExit -File $DOTFILES_DIR\bin\Update-Dotfiles.ps1 -Tags" + ($Tags -join ","))
+    Start-Process wt -Verb runAs -ArgumentList "-- pwsh -NoExit -Command `". $DOTFILES_DIR\bin\Update-Dotfiles.ps1 -Tags $($Tags -join ",")`""
     return
 }
 

@@ -38,12 +38,7 @@ $DOTFILES_DIR = "$HOME\.windows-dotfiles"
 if (!(Test-Path -Path $DOTFILES_DIR))
 {
     Write-Host "Cloning dotfiles repository..."
-    git clone --quiet --recurse-submodules https://github.com/lexesj/windows-dotfiles.git "$DOTFILES_DIR"
-} else
-{
-    Write-Host "Updating dotfiles repository..."
-    git -C $DOTFILES_DIR pull --quiet
-    git -C $DOTFILES_DIR submodule update --remote
+    git clone --quiet --recurse-submodules https://github.com/lexesj/windows-dotfiles.git $DOTFILES_DIR
 }
 
 function Test-IsAdmin
@@ -61,6 +56,10 @@ if (!(Test-IsAdmin))
     Start-Process wt -Verb runAs -ArgumentList "-- pwsh -NoExit -Command `". $DOTFILES_DIR\bin\Update-Dotfiles.ps1 -Tags $($Tags -join ",")`""
     return
 }
+
+Write-Host "Updating dotfiles repository..."
+git -C $DOTFILES_DIR pull --quiet
+git -C $DOTFILES_DIR submodule update --remote
 
 Import-Module "$DOTFILES_DIR\bin\Installers.psm1"
 

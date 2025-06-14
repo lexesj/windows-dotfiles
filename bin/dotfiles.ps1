@@ -7,7 +7,7 @@
 #>
 param
 (
-    [string[]]$Tags = @("PowerShell", "Vim")
+    [string[]]$Tags = @("PowerShell", "Vim", "Terminal")
 )
 
 $DOTFILES_DIR = "$HOME\.windows-dotfiles"
@@ -90,6 +90,16 @@ function Install-Vim
     }
 
     New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$DOTFILES_DIR\.vsvimrc" -Force
+}
+
+function Install-Terminal
+{
+    foreach ($program in @("Microsoft.WindowsTerminal", "DEVCOM.JetBrainsMonoNerdFont"))
+    {
+        Install-Program $program
+    }
+
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" -Target "$DOTFILES_DIR\windows-terminal\settings.json" -Force
 }
 
 foreach ($tag in $Tags)

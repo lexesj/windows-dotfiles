@@ -135,5 +135,5 @@ $DOTFILES_DIR = "$HOME\.windows-dotfiles"
 
 function Update-Dotfiles
 {
-    ."$DOTFILES_DIR\bin\dotfiles.ps1" @args
+    & "$DOTFILES_DIR\bin\dotfiles.ps1" @args
 }

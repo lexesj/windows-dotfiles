@@ -7,7 +7,7 @@
 #>
 param
 (
-    [string[]]$Tags = @("PowerShell", "Vim", "Terminal", "PowerToys", "CliTools")
+    [string[]]$Tags = @("PowerShell", "Vim", "Terminal", "PowerToys", "CliTools", "SshKey")
 )
 
 $DOTFILES_DIR = "$HOME\.windows-dotfiles"
@@ -121,6 +121,33 @@ function Install-CliTools
     {
         Install-Program $Program
     }
+}
+
+function Install-SshKey
+{
+    $SshKeyLocation = "$HOME\.ssh\id_ed25519"
+
+    if (Test-Path -Path $SshKeyLocation -PathType Leaf)
+    {
+        Write-Host "SSH key already exists..."
+        return
+    }
+
+    $HostName = [System.Net.Dns]::GetHostName()
+    $UserName = $env:USERNAME
+    $Comment = Read-Host -Prompt "SSH key comment [$UserName@$HostName-windows] "
+
+    if ([string]::IsNullOrWhiteSpace($Comment))
+    {
+        $Comment = "$UserName@$HostName-windows"
+    }
+
+    New-Item -ItemType Directory -Force -Path "$HOME\.ssh"
+    Write-Host "Generating SSH key at $SshKeyLocation with comment '$Comment'..."
+    ssh-keygen -t ed25519 -C $Comment -f $SshKeyLocation
+
+    Write-Host "Public key is: "
+    ssh-keygen -y -f $SshKeyLocation
 }
 
 foreach ($Tag in $Tags)

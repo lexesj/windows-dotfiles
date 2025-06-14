@@ -1,0 +1,3 @@
+[submodule "unix-dotfiles"]
+	path = unix-dotfiles
+	url = https://github.com/lexesj/dotfiles

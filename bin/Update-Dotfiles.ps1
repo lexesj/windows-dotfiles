@@ -12,15 +12,6 @@ param
 
 $DOTFILES_DIR = "$HOME\.windows-dotfiles"
 
-function Test-IsAdmin
-{
-    $Identity = [Security.Principal.WindowsIdentity]::GetCurrent()
-    $Principal = New-Object Security.Principal.WindowsPrincipal $Identity
-    $IsAdmin = $Principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-
-    return $isAdmin
-}
-
 $InstalledPrograms = winget list | Out-String
 
 function Install-Program
@@ -58,6 +49,15 @@ function Install-Dependencies
 }
 
 Install-Dependencies
+
+function Test-IsAdmin
+{
+    $Identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $Principal = New-Object Security.Principal.WindowsPrincipal $Identity
+    $IsAdmin = $Principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+
+    return $isAdmin
+}
 
 if (!(Test-IsAdmin))
 {

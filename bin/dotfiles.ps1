@@ -65,11 +65,11 @@ Install-Git
 if (!(Test-Path -Path $DOTFILES_DIR))
 {
     Write-Host "Cloning dotfiles repository..."
-    git clone --quiet https://github.com/lexesj/windows-dotfiles.git "$DOTFILES_DIR"
+    git clone --quiet --recurse-submodules https://github.com/lexesj/windows-dotfiles.git "$DOTFILES_DIR"
 } else
 {
     Write-Host "Updating dotfiles repository..."
-    git -C "$DOTFILES_DIR" pull --quiet
+    git -C "$DOTFILES_DIR" pull --quiet --recurse-submodules
 }
 
 

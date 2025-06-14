@@ -57,9 +57,12 @@ if (!(Test-IsAdmin))
     return
 }
 
-Write-Host "Updating dotfiles repository..."
-git -C $DOTFILES_DIR pull --quiet
-git -C $DOTFILES_DIR submodule update --remote
+if (Test-Path -Path $DOTFILES_DIR)
+{
+    Write-Host "Updating dotfiles repository..."
+    git -C $DOTFILES_DIR pull --quiet
+    git -C $DOTFILES_DIR submodule update --remote
+}
 
 Import-Module "$DOTFILES_DIR\bin\Installers.psm1"
 

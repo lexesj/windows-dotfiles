@@ -29,7 +29,7 @@ function Install-Program
 function Install-Git
 {
 	Install-Program Git.Git
-	New-Item -ItemType SymbolicLink -Path "$HOME\.gitconfig" -Target "$DOTFILES_DIR\.gitconfig" -Force
+	New-Item -ItemType SymbolicLink -Path "$HOME\.gitconfig" -Target "$DOTFILES_DIR\unix-dotfiles\roles\git\files\.gitconfig" -Force
 }
 
 function Install-PowerShell

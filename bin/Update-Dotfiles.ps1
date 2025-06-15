@@ -62,6 +62,16 @@ if (Test-Path -Path $DOTFILES_DIR)
     Write-Host "Updating dotfiles repository..."
     git -C $DOTFILES_DIR pull --quiet
     git -C $DOTFILES_DIR submodule update --remote
+    git -C $DOTFILES_DIR diff --quiet "$DOTFILES_DIR\unix-dotfiles"
+
+    $HasChanges = !$?
+    if ($HasChanges)
+    {
+        Write-Host "Updating unix-dotfiles submodule..."
+        git -C $DOTFILES_DIR add "$DOTFILES_DIR\unix-dotfiles"
+        git -C $DOTFILES_DIR commit --quiet -m "Update unix-dotfiles submodule"
+        git -C $DOTFILES_DIR push --quiet
+    }
 }
 
 Import-Module "$DOTFILES_DIR\bin\Installers.psm1"

@@ -109,3 +109,8 @@ function Install-SshKey
 	Write-Host "Public key is: "
 	ssh-keygen -y -f $SshKeyLocation
 }
+
+function Install-Winget
+{
+	New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json" -Target "$DOTFILES_DIR\winget\settings.json" -Force
+}

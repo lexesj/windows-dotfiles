@@ -7,7 +7,7 @@
 #>
 param
 (
-    [string[]]$Tags = @("Git", "PowerShell", "Vim", "Terminal", "PowerToys", "CliTools", "SshKey", "Winget")
+    [string[]]$Tags = @("Winget", "Git", "PowerShell", "Vim", "Terminal", "PowerToys", "CliTools", "SshKey")
 )
 
 function Install-Dependencies

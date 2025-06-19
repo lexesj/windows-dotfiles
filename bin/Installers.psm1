@@ -72,6 +72,7 @@ function Install-PowerToys
 {
     Install-Program Microsoft.PowerToys
 
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\settings.json" -Target "$DOTFILES_DIR\powertoys\settings.json" -Force
     New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\Keyboard Manager\default.json" -Target "$DOTFILES_DIR\powertoys\keyboard\default.json" -Force
 }
 

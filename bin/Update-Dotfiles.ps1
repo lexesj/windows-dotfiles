@@ -57,6 +57,11 @@ if (!(Test-IsAdmin))
     return
 }
 
+function Test-IsAuthenticated
+{
+    return git -C "$DOTFILES_DIR\unix-dotfiles" remote -v | Select-String -Pattern "git@github.com" -Quiet
+}
+
 if (Test-Path -Path $DOTFILES_DIR)
 {
     Write-Host "Updating dotfiles repository..."
@@ -65,7 +70,7 @@ if (Test-Path -Path $DOTFILES_DIR)
     git -C $DOTFILES_DIR diff --quiet "$DOTFILES_DIR\unix-dotfiles"
 
     $HasChanges = !$?
-    if ($HasChanges)
+    if (Test-IsAuthenticated -and $HasChanges)
     {
         Write-Host "Updating unix-dotfiles submodule..."
         git -C $DOTFILES_DIR add "$DOTFILES_DIR\unix-dotfiles"

@@ -74,6 +74,7 @@ function Install-PowerToys
 
     New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\settings.json" -Target "$DOTFILES_DIR\powertoys\settings.json" -Force
     New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\Keyboard Manager\default.json" -Target "$DOTFILES_DIR\powertoys\keyboard\default.json" -Force
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.CommandPalette_8wekyb3d8bbwe\LocalState\settings.json" -Target "$DOTFILES_DIR\powertoys\command-palette\settings.json" -Force
 }
 
 function Install-CliTools

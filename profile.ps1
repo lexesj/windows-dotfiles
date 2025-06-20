@@ -71,19 +71,6 @@ function dirs
     }
 }
 
-# Simple function to start a new elevated process. If arguments are supplied then
-# a single command is started with admin rights; if not then a new admin instance
-# of PowerShell is started.
-function admin
-{
-    Start-Process wt -Verb runAs -ArgumentList "-- pwsh"
-}
-
-# Set UNIX-like aliases for the admin command, so sudo <command> will run the command
-# with elevated rights.
-Set-Alias -Name su -Value admin
-Set-Alias -Name sudo -Value admin
-
 # Make it easy to edit this profile once it's installed
 function Edit-Profile
 {

@@ -79,7 +79,7 @@ function Install-PowerToys
 
 function Install-CliTools
 {
-    foreach ($Program in @("junegunn.fzf", "JesseDuffield.lazygit", "Schniz.fnm", "BurntSushi.ripgrep.MSVC", "sharkdp.fd", "ajeetdsouza.zoxide"))
+    foreach ($Program in @("junegunn.fzf", "JesseDuffield.lazygit", "Schniz.fnm", "BurntSushi.ripgrep.MSVC", "sharkdp.fd", "ajeetdsouza.zoxide", "tldr-pages.tlrc"))
     {
         Install-Program $Program
     }

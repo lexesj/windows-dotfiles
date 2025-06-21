@@ -34,10 +34,10 @@ function Update-Dotfiles
         [Tag[]]$Tags = [Tag].GetEnumValues()
     )
 
-    if(!Test-IsSudoEnabled)
+    if(!(Test-IsSudoEnabled))
     {
         sudo.exe --help
-        exit 1
+        return
     }
 
     if (!(Test-Path -Path $env:DOTFILES_PATH))

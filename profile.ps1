@@ -110,9 +110,5 @@ $env:EDITOR = "nvim"
 # Set default shell as PowerShell.
 $env:SHELL = "pwsh"
 
-$DOTFILES_DIR = "$HOME\.windows-dotfiles"
-
-function Update-Dotfiles
-{
-    & "$DOTFILES_DIR\bin\Update-Dotfiles.ps1" @args
-}
+$env:DOTFILES_PATH = "$HOME\.dotfiles"
+Import-Module "$env:DOTFILES_PATH\bin\Dotfiles.psm1"

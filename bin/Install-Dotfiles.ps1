@@ -24,6 +24,6 @@ if (!(Test-Path -Path $env:DOTFILES_PATH))
 	git clone --quiet --recurse-submodules https://github.com/lexesj/windows-dotfiles.git $env:DOTFILES_PATH
 }
 
-Import-Module "$env:DOTFILES_PATH\bin\Dotfiles.psm1"
+Import-Module "$env:DOTFILES_PATH\bin\Dotfiles.psm1" -Force
 
 Update-Dotfiles

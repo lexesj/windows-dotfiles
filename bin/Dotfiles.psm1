@@ -3,8 +3,6 @@ if ([string]::IsNullOrWhiteSpace($env:DOTFILES_PATH))
     $env:DOTFILES_PATH = "$HOME\.dotfiles"
 }
 
-Import-Module "$env:DOTFILES_PATH\bin\Installers.psm1" -Force
-
 enum Tag
 {
     Winget
@@ -60,6 +58,8 @@ function Update-Dotfiles
             git -C $env:DOTFILES_PATH push --quiet
         }
     }
+
+    Import-Module "$env:DOTFILES_PATH\bin\Installers.psm1" -Force
 
     foreach ($Tag in $Tags)
     {

@@ -17,23 +17,12 @@ function Test-SubmoduleAuthenticated
     return git -C "$env:DOTFILES_PATH\unix-dotfiles" remote -v | Select-String -Pattern "git@github.com" -Quiet
 }
 
-function Test-SudoEnabled
-{
-    return !(sudo --help | Select-String -Pattern "Sudo is disabled" -Quiet)
-}
-
 function Update-Dotfiles
 {
     param
     (
         [Tag[]]$Tags = [Tag].GetEnumValues()
     )
-
-    if(!(Test-SudoEnabled))
-    {
-        sudo --help
-        return
-    }
 
     if (!(Test-Path -Path $env:DOTFILES_PATH))
     {
@@ -58,8 +47,12 @@ function Update-Dotfiles
 
     Import-Module "$env:DOTFILES_PATH\bin\Installers.psm1" -Force
 
+    gsudo cache on
+
     foreach ($Tag in $Tags)
     {
         & (Get-Command -Name "Install-$Tag")
     }
+
+    gsudo cache off
 }

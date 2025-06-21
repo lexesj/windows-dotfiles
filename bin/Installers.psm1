@@ -18,7 +18,7 @@ function New-Link
         [string]$Link
     )
 
-    sudo --inline pwsh -NoProfile -NoLogo -Command "New-Item -ItemType SymbolicLink -Target `"$Path`" -Path `"$Link`" -Force"
+    gsudo { New-Item -ItemType SymbolicLink -Target $args[0] -Path $args[1] -Force } -args $Path,$Link
 }
 
 $InstalledPrograms = winget list | Out-String
@@ -44,11 +44,11 @@ function Install-Program
     if ($InstalledPrograms -notmatch $ProgramName)
     {
         Write-Host "Installing $ProgramName..."
-        winget install $ProgramName
+        gsudo winget install $ProgramName
     } elseif ($ShouldUpdate)
     {
         Write-Host "Updating $ProgramName..."
-        winget upgrade $ProgramName
+        gsudo winget upgrade $ProgramName
     }
 }
 
@@ -68,7 +68,7 @@ function Install-PowerShell
         if (!(Get-Module -ListAvailable -Name $Module))
         {
             Write-Host "Installing PowerShell module: $Module..."
-            Install-Module -Name $Module -Force
+            gsudo { Install-Module -Name $Module -Force }
         }
     }
 
@@ -107,7 +107,7 @@ function Install-PowerToys
 
 function Install-CliTools
 {
-    foreach ($Program in @("junegunn.fzf", "JesseDuffield.lazygit", "Schniz.fnm", "BurntSushi.ripgrep.MSVC", "sharkdp.fd", "ajeetdsouza.zoxide", "tldr-pages.tlrc"))
+    foreach ($Program in @("junegunn.fzf", "JesseDuffield.lazygit", "Schniz.fnm", "BurntSushi.ripgrep.MSVC", "sharkdp.fd", "ajeetdsouza.zoxide", "tldr-pages.tlrc", "gerardog.gsudo"))
     {
         Install-Program $Program
     }

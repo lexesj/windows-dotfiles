@@ -12,10 +12,33 @@ param
 
 $env:DOTFILES_PATH = $DotfilesPath
 
-if (!(Get-Command git -ErrorAction SilentlyContinue))
+function Install-Dependencies
 {
-	Write-Host "Installing git..."
-	winget install Git.Git
+	if (!(Get-Command git -ErrorAction SilentlyContinue))
+	{
+		Write-Host "Installing git..."
+		winget install Git.Git
+	}
+
+	if (!(Get-Command gsudo -ErrorAction SilentlyContinue))
+	{
+		Write-Host "Installing gsudo..."
+		winget install gerardog.gsudo
+	}
+
+	if (!(Get-Command pwsh -ErrorAction SilentlyContinue))
+	{
+		Write-Host "Installing PowerShell..."
+		winget install Microsoft.PowerShell
+	}
+}
+
+function Update-Path
+{
+	$MachinePath = [System.Environment]::GetEnvironmentVariable("Path","Machine")
+	$UserPath = [System.Environment]::GetEnvironmentVariable("Path","User")
+	$ExtraPath = $env:PATH.Replace($MachinePath, "").Replace($UserPath, "").Replace(";;", ";")
+	$env:Path = $ExtraPath + ";" + $MachinePath + ";" + $UserPath
 }
 
 if (!(Test-Path -Path $env:DOTFILES_PATH))
@@ -24,6 +47,6 @@ if (!(Test-Path -Path $env:DOTFILES_PATH))
 	git clone --quiet --recurse-submodules https://github.com/lexesj/windows-dotfiles.git $env:DOTFILES_PATH
 }
 
-Import-Module "$env:DOTFILES_PATH\bin\Dotfiles.psm1" -Force
-
-Update-Dotfiles
+Install-Dependencies
+Update-Path
+pwsh -NoLogo -NoProfile -Command { Import-Module "$env:DOTFILES_PATH\bin\Dotfiles.psm1" -Force; Update-Dotfiles }

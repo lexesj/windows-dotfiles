@@ -8,11 +8,14 @@ function Install-Program
 
     .PARAMETER ProgramName
         The name of the program to be installed.
+
+    .PARAMETER ShouldUpdate
+        If the program is already installed, this parameter determines whether to update it. Default is $true.
     #>
     param
     (
         [string]$ProgramName,
-        [bool]$Update = $true
+        [bool]$ShouldUpdate = $true
     )
 
     if ($InstalledPrograms -notmatch $ProgramName)

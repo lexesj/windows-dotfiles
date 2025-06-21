@@ -1,7 +1,4 @@
-if ([string]::IsNullOrWhiteSpace($env:DOTFILES_PATH))
-{
-    $env:DOTFILES_PATH = "$HOME\.dotfiles"
-}
+Import-Module "$PSScriptRoot\DefaultVariables.psm1"
 
 function New-Link
 {

@@ -32,7 +32,7 @@ function Install-Program
 function Install-Git
 {
     Install-Program Git.Git
-    New-Item -ItemType SymbolicLink -Path "$HOME\.gitconfig" -Target "$DOTFILES_DIR\unix-dotfiles\roles\git\files\.gitconfig" -Force
+    New-Item -ItemType SymbolicLink -Path "$HOME\.gitconfig" -Target "$env:DOTFILES_PATH\unix-dotfiles\roles\git\files\.gitconfig" -Force
 }
 
 function Install-PowerShell
@@ -47,7 +47,7 @@ function Install-PowerShell
         }
     }
 
-    New-Item -ItemType SymbolicLink -Path "$([Environment]::GetFolderPath("MyDocuments"))\PowerShell\profile.ps1" -Target "$DOTFILES_DIR\profile.ps1" -Force
+    New-Item -ItemType SymbolicLink -Path "$([Environment]::GetFolderPath("MyDocuments"))\PowerShell\profile.ps1" -Target "$env:DOTFILES_PATH\profile.ps1" -Force
 }
 
 function Install-Vim
@@ -57,8 +57,8 @@ function Install-Vim
         Install-Program $Program
     }
 
-    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$DOTFILES_DIR\unix-dotfiles\roles\neovim\files\nvim" -Force
-    New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$DOTFILES_DIR\.vsvimrc" -Force
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$env:DOTFILES_PATH\unix-dotfiles\roles\neovim\files\nvim" -Force
+    New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$env:DOTFILES_PATH\.vsvimrc" -Force
 }
 
 function Install-Terminal
@@ -68,16 +68,16 @@ function Install-Terminal
         Install-Program $Program
     }
 
-    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" -Target "$DOTFILES_DIR\windows-terminal\settings.json" -Force
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" -Target "$env:DOTFILES_PATH\windows-terminal\settings.json" -Force
 }
 
 function Install-PowerToys
 {
     Install-Program Microsoft.PowerToys
 
-    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\settings.json" -Target "$DOTFILES_DIR\powertoys\settings.json" -Force
-    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\Keyboard Manager\default.json" -Target "$DOTFILES_DIR\powertoys\keyboard\default.json" -Force
-    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.CommandPalette_8wekyb3d8bbwe\LocalState\settings.json" -Target "$DOTFILES_DIR\powertoys\command-palette\settings.json" -Force
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\settings.json" -Target "$env:DOTFILES_PATH\powertoys\settings.json" -Force
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\Keyboard Manager\default.json" -Target "$env:DOTFILES_PATH\powertoys\keyboard\default.json" -Force
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.CommandPalette_8wekyb3d8bbwe\LocalState\settings.json" -Target "$env:DOTFILES_PATH\powertoys\command-palette\settings.json" -Force
 }
 
 function Install-CliTools
@@ -117,6 +117,6 @@ function Install-SshKey
 
 function Install-Winget
 {
-    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json" -Target "$DOTFILES_DIR\winget\settings.json" -Force
+    New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json" -Target "$env:DOTFILES_PATH\winget\settings.json" -Force
     winget update winget
 }

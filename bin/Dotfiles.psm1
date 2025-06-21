@@ -22,12 +22,23 @@ function Test-IsSubmoduleAuthenticated
     return git -C "$env:DOTFILES_PATH\unix-dotfiles" remote -v | Select-String -Pattern "git@github.com" -Quiet
 }
 
+function Test-IsSudoEnabled
+{
+    return !(sudo.exe --help | Select-String -Pattern "Sudo is disabled" -Quiet)
+}
+
 function Update-Dotfiles
 {
     param
     (
         [Tag[]]$Tags = [Tag].GetEnumValues()
     )
+
+    if(!Test-IsSudoEnabled)
+    {
+        sudo.exe --help
+        exit 1
+    }
 
     if (!(Test-Path -Path $env:DOTFILES_PATH))
     {

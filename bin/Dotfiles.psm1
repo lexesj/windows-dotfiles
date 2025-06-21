@@ -15,12 +15,12 @@ enum Tag
     SshKey
 }
 
-function Test-IsSubmoduleAuthenticated
+function Test-SubmoduleAuthenticated
 {
     return git -C "$env:DOTFILES_PATH\unix-dotfiles" remote -v | Select-String -Pattern "git@github.com" -Quiet
 }
 
-function Test-IsSudoEnabled
+function Test-SudoEnabled
 {
     return !(sudo --help | Select-String -Pattern "Sudo is disabled" -Quiet)
 }
@@ -32,7 +32,7 @@ function Update-Dotfiles
         [Tag[]]$Tags = [Tag].GetEnumValues()
     )
 
-    if(!(Test-IsSudoEnabled))
+    if(!(Test-SudoEnabled))
     {
         sudo --help
         return
@@ -50,7 +50,7 @@ function Update-Dotfiles
         git -C $env:DOTFILES_PATH diff --quiet "$env:DOTFILES_PATH\unix-dotfiles"
 
         $HasChanges = !$?
-        if (Test-IsSubmoduleAuthenticated -and $HasChanges)
+        if (Test-SubmoduleAuthenticated -and $HasChanges)
         {
             Write-Host "Updating unix-dotfiles submodule..."
             git -C $env:DOTFILES_PATH add "$env:DOTFILES_PATH\unix-dotfiles"

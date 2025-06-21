@@ -3,7 +3,7 @@ if ([string]::IsNullOrWhiteSpace($env:DOTFILES_PATH))
     $env:DOTFILES_PATH = "$HOME\.dotfiles"
 }
 
-Import-Module "$env:DOTFILES_PATH\bin\Installers.psm1"
+Import-Module "$env:DOTFILES_PATH\bin\Installers.psm1" -Force
 
 enum Tag
 {
@@ -24,7 +24,7 @@ function Test-IsSubmoduleAuthenticated
 
 function Test-IsSudoEnabled
 {
-    return !(sudo.exe --help | Select-String -Pattern "Sudo is disabled" -Quiet)
+    return !(sudo --help | Select-String -Pattern "Sudo is disabled" -Quiet)
 }
 
 function Update-Dotfiles
@@ -36,7 +36,7 @@ function Update-Dotfiles
 
     if(!(Test-IsSudoEnabled))
     {
-        sudo.exe --help
+        sudo --help
         return
     }
 

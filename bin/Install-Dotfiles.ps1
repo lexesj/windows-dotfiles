@@ -25,3 +25,5 @@ if (!(Test-Path -Path $env:DOTFILES_PATH))
 }
 
 Import-Module "$env:DOTFILES_PATH\bin\Dotfiles.psm1"
+
+Update-Dotfiles

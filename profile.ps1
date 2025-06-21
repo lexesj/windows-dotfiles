@@ -111,4 +111,5 @@ $env:EDITOR = "nvim"
 $env:SHELL = "pwsh"
 
 $env:DOTFILES_PATH = "$HOME\.dotfiles"
-Import-Module "$env:DOTFILES_PATH\bin\Dotfiles.psm1"
+
+Import-Module "$env:DOTFILES_PATH\bin\Dotfiles.psm1" -Force

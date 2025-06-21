@@ -38,7 +38,7 @@ function Install-Program
     param
     (
         [string]$ProgramName,
-        [bool]$ShouldUpdate = $true
+        [switch]$ShouldUpdate
     )
 
     if ($InstalledPrograms -notmatch $ProgramName)

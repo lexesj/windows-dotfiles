@@ -114,5 +114,8 @@
       }
     }
   ],
-  "SummonOn": "ToMouse"
+  "SummonOn": "ToMouse",
+  "UseLowLevelGlobalHotkey": false,
+  "ShowSystemTrayIcon": false,
+  "IgnoreShortcutWhenFullscreen": false
 }

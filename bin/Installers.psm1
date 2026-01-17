@@ -77,7 +77,7 @@ function Install-PowerShell
 
 function Install-Vim
 {
-    foreach ($Program in @("Neovim.Neovim", "zig.zig"))
+    foreach ($Program in @("Neovim.Neovim", "BrechtSanders.WinLibs.POSIX.UCRT"))
     {
         Install-Program $Program
     }

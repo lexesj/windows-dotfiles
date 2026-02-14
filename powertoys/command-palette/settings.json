@@ -8,55 +8,101 @@
     "key": ""
   },
   "ShowAppDetails": false,
-  "HotkeyGoesHome": false,
   "BackspaceGoesBack": false,
   "SingleClickActivates": false,
   "HighlightSearchOnActivate": true,
   "ProviderSettings": {
     "AllApps": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "Run": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "Calculator": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "Files": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "Bookmarks": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "WindowWalker": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "WebSearch": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "WinGet": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "WindowsTerminalProfiles": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "Windows.Settings": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "Windows.Registry": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "Windows.Services": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "Core": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "DateTime": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
     },
     "System": {
-      "IsEnabled": true
+      "IsEnabled": true,
+      "FallbackCommands": {}
+    },
+    "com.microsoft.cmdpal.builtin.run": {
+      "IsEnabled": true,
+      "FallbackCommands": {}
+    },
+    "com.microsoft.cmdpal.builtin.calculator": {
+      "IsEnabled": true,
+      "FallbackCommands": {}
+    },
+    "com.microsoft.cmdpal.builtin.websearch": {
+      "IsEnabled": true,
+      "FallbackCommands": {}
+    },
+    "Windows.ClipboardHistory": {
+      "IsEnabled": true,
+      "FallbackCommands": {}
+    },
+    "com.microsoft.cmdpal.builtin.windowssettings": {
+      "IsEnabled": true,
+      "FallbackCommands": {}
+    },
+    "com.microsoft.cmdpal.builtin.core": {
+      "IsEnabled": true,
+      "FallbackCommands": {}
+    },
+    "com.microsoft.cmdpal.builtin.datetime": {
+      "IsEnabled": true,
+      "FallbackCommands": {}
+    },
+    "com.microsoft.cmdpal.builtin.system": {
+      "IsEnabled": true,
+      "FallbackCommands": {}
     }
   },
   "Aliases": {
@@ -117,5 +163,33 @@
   "SummonOn": "ToMouse",
   "UseLowLevelGlobalHotkey": false,
   "ShowSystemTrayIcon": false,
-  "IgnoreShortcutWhenFullscreen": false
+  "IgnoreShortcutWhenFullscreen": false,
+  "AllowExternalReload": false,
+  "DisableAnimations": true,
+  "LastWindowPosition": {
+    "X": 1320,
+    "Y": 456,
+    "Width": 800,
+    "Height": 480,
+    "ScreenWidth": 0,
+    "ScreenHeight": 0,
+    "Dpi": 0
+  },
+  "FallbackRanks": [],
+  "AutoGoHomeInterval": "-00:00:00.0010000",
+  "EscapeKeyBehaviorSetting": "ClearSearchFirstThenGoBack",
+  "Theme": "Default",
+  "ColorizationMode": "None",
+  "CustomThemeColor": {
+    "A": 0,
+    "R": 255,
+    "G": 255,
+    "B": 255
+  },
+  "CustomThemeColorIntensity": 100,
+  "BackgroundImageOpacity": 20,
+  "BackgroundImageBlurAmount": 0,
+  "BackgroundImageBrightness": 0,
+  "BackgroundImageFit": "Fill",
+  "BackgroundImagePath": null
 }

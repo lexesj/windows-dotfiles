@@ -75,17 +75,6 @@ function Install-PowerShell
     New-Link -Path "$env:DOTFILES_PATH\profile.ps1" -Link "$([Environment]::GetFolderPath("MyDocuments"))\PowerShell\profile.ps1"
 }
 
-function Install-Vim
-{
-    foreach ($Program in @("Neovim.Neovim", "BrechtSanders.WinLibs.POSIX.UCRT"))
-    {
-        Install-Program $Program
-    }
-
-    New-Link -Path "$env:DOTFILES_PATH\unix-dotfiles\roles\neovim\files\nvim" -Link "$env:LOCALAPPDATA\nvim"
-    New-Link -Path "$env:DOTFILES_PATH\.vsvimrc" -Link "$HOME\.vsvimrc"
-}
-
 function Install-Terminal
 {
     foreach ($Program in @("Microsoft.WindowsTerminal", "DEVCOM.JetBrainsMonoNerdFont"))

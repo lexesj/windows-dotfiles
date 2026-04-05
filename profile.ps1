@@ -98,8 +98,8 @@ if (Get-Command "zoxide" -errorAction SilentlyContinue)
     Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 }
 
-# Neovim as main editor.
-$env:EDITOR = "nvim"
+# Vs Code as main editor.
+$env:EDITOR = "code"
 
 # Set default shell as PowerShell.
 $env:SHELL = "pwsh"

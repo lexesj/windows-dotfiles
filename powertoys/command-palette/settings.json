@@ -26,7 +26,12 @@
     },
     "Files": {
       "IsEnabled": true,
-      "FallbackCommands": {}
+      "FallbackCommands": {
+        "com.microsoft.cmdpal.builtin.indexer.fallback": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": false
+        }
+      }
     },
     "Bookmarks": {
       "IsEnabled": true,
@@ -74,15 +79,34 @@
     },
     "com.microsoft.cmdpal.builtin.run": {
       "IsEnabled": true,
-      "FallbackCommands": {}
+      "FallbackCommands": {
+        "com.microsoft.cmdpal.builtin.shell.fallback": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": true
+        }
+      }
     },
     "com.microsoft.cmdpal.builtin.calculator": {
       "IsEnabled": true,
-      "FallbackCommands": {}
+      "FallbackCommands": {
+        "com.microsoft.cmdpal.builtin.calculator.fallback": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": false
+        }
+      }
     },
     "com.microsoft.cmdpal.builtin.websearch": {
       "IsEnabled": true,
-      "FallbackCommands": {}
+      "FallbackCommands": {
+        "com.microsoft.cmdpal.builtin.websearch.openurl.fallback": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": true
+        },
+        "com.microsoft.cmdpal.builtin.websearch.execute.fallback": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": true
+        }
+      }
     },
     "Windows.ClipboardHistory": {
       "IsEnabled": true,
@@ -90,19 +114,85 @@
     },
     "com.microsoft.cmdpal.builtin.windowssettings": {
       "IsEnabled": true,
-      "FallbackCommands": {}
+      "FallbackCommands": {
+        "com.microsoft.cmdpal.builtin.windows.settings.fallback": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": true
+        }
+      }
     },
     "com.microsoft.cmdpal.builtin.core": {
       "IsEnabled": true,
-      "FallbackCommands": {}
+      "FallbackCommands": {
+        "com.microsoft.cmdpal.quit": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": true
+        },
+        "com.microsoft.cmdpal.reload": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": true
+        },
+        "com.microsoft.cmdpal.log": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": true
+        }
+      }
     },
     "com.microsoft.cmdpal.builtin.datetime": {
       "IsEnabled": true,
-      "FallbackCommands": {}
+      "FallbackCommands": {
+        "com.microsoft.cmdpal.builtin.timedate.fallback": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": true
+        }
+      }
     },
     "com.microsoft.cmdpal.builtin.system": {
       "IsEnabled": true,
-      "FallbackCommands": {}
+      "FallbackCommands": {
+        "com.microsoft.cmdpal.builtin.system.fallback": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": true
+        }
+      }
+    },
+    "com.microsoft.cmdpal.builtin.remotedesktop": {
+      "IsEnabled": true,
+      "FallbackCommands": {
+        "com.microsoft.cmdpal.builtin.remotedesktop.fallback": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": true
+        }
+      }
+    },
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys": {
+      "IsEnabled": true,
+      "FallbackCommands": {
+        "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": false
+        },
+        "com.microsoft.powertoys.colorpicker.savedColors": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": false
+        },
+        "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys3157531528285365397": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": false
+        },
+        "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys4183416308945530589": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": false
+        },
+        "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys13871747952371807453": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": false
+        },
+        "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys10868897447568331463": {
+          "IsEnabled": true,
+          "IncludeInGlobalResults": false
+        }
+      }
     }
   },
   "Aliases": {
@@ -167,15 +257,70 @@
   "AllowExternalReload": false,
   "DisableAnimations": true,
   "LastWindowPosition": {
-    "X": 1320,
-    "Y": 456,
-    "Width": 800,
-    "Height": 480,
-    "ScreenWidth": 0,
-    "ScreenHeight": 0,
-    "Dpi": 0
+    "X": 853,
+    "Y": -3,
+    "Width": 1734,
+    "Height": 1399,
+    "ScreenWidth": 3440,
+    "ScreenHeight": 1392,
+    "Dpi": 96
   },
-  "FallbackRanks": [],
+  "FallbackRanks": [
+    "com.microsoft.cmdpal.builtin.shell.fallback",
+    "com.microsoft.cmdpal.builtin.calculator.fallback",
+    "com.microsoft.cmdpal.builtin.indexer.fallback",
+    "com.microsoft.cmdpal.builtin.websearch.openurl.fallback",
+    "com.microsoft.cmdpal.builtin.websearch.execute.fallback",
+    "com.microsoft.cmdpal.builtin.windows.settings.fallback",
+    "com.microsoft.cmdpal.quit",
+    "com.microsoft.cmdpal.reload",
+    "com.microsoft.cmdpal.log",
+    "com.microsoft.cmdpal.builtin.timedate.fallback",
+    "com.microsoft.cmdpal.builtin.system.fallback",
+    "com.microsoft.cmdpal.builtin.remotedesktop.fallback",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "com.microsoft.powertoys.colorpicker.savedColors",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys6224378385071502265",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys3157531528285365397",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys4183416308945530589",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys13871747952371807453",
+    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys10868897447568331463"
+  ],
   "AutoGoHomeInterval": "-00:00:00.0010000",
   "EscapeKeyBehaviorSetting": "ClearSearchFirstThenGoBack",
   "Theme": "Default",

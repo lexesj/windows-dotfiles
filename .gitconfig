@@ -1,0 +1,8 @@
+[user]
+	name = Lexes Jan Mantiquilla
+	email = mantiquillal@gmail.com
+[core]
+	longpaths = true
+	autocrlf = true
+[push]
+	autoSetupRemote = true

@@ -56,7 +56,7 @@ function Install-Git
 {
     Install-Program Git.Git
 
-    New-Link -Path "$env:DOTFILES_PATH\unix-dotfiles\roles\git\files\.gitconfig" -Link "$HOME\.gitconfig"
+    New-Link -Path "$env:DOTFILES_PATH\.gitconfig" -Link "$HOME\.gitconfig"
 }
 
 function Install-PowerShell

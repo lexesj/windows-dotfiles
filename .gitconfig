@@ -4,5 +4,6 @@
 [core]
 	longpaths = true
 	autocrlf = true
+	editor = code --wait
 [push]
 	autoSetupRemote = true
